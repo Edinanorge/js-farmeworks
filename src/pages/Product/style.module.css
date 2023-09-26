@@ -1,0 +1,59 @@
+.singleProductContainer {
+  display: flex;
+  justify-content: center;
+  padding: 6rem;
+  gap: 2rem;
+}
+
+.singleProductContainer img {
+  width: 30rem;
+  height: 30rem;
+  object-fit: cover;
+}
+.singleProductContainer h2 {
+  font-size: 2rem;
+}
+
+.singleProductContainer h3 {
+  margin-top: 2rem;
+}
+.singleProductContainer p {
+  max-width: 70%;
+}
+.star {
+  color: yellow;
+}
+
+.reviewContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2rem 6rem;
+}
+.review {
+  margin-left: 2rem;
+  list-style: none;
+}
+
+.btnCta {
+  background-color: var(--color-brand--2);
+  color: var(--color-dark--1);
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight: 600;
+  padding: 1rem 3rem;
+  margin-top: 2rem;
+  border-radius: 5px;
+  border: none;
+}
+.btnCta:hover {
+  background-color: var(--color-hover--1);
+}
+
+@media screen and (max-width: 600px) {
+  .singleProductContainer {
+    flex-direction: column;
+    align-items: start;
+  }
+}
