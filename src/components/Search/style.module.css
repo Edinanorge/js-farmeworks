@@ -1,3 +1,10 @@
 .form {
   margin: 6rem 0 3rem 4rem;
+  max-width: 30%;
+}
+
+@media screen and (max-width: 600px) {
+  .form {
+    max-width: 70%;
+  }
 }

@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import styles from "./style.module.css";
+import StarRating from "../StarRating";
 
 interface IProduct {
   id: number;
@@ -8,6 +9,7 @@ interface IProduct {
   description: string;
   price: number;
   discountedPrice: number;
+  rating: number;
 }
 
 interface IProductListProps {
@@ -17,14 +19,16 @@ interface IProductListProps {
 function ProductList({ products }: IProductListProps) {
   const productItem = products.map((product) => {
     const { id, imageUrl, title, description, price, discountedPrice } = product;
-    const discount = discountedPrice <= price;
+    const discount = discountedPrice < price;
     const discountValue = (((price - discountedPrice) / price) * 100).toFixed(0);
 
     return (
       <div key={id} className={styles.product}>
         <img src={imageUrl} alt="product image" />
         <h2>{title}</h2>
+        <StarRating rating={product.rating} />
         <p>{description}</p>
+
         {discount ? (
           <div>
             <span className={styles.discountedPrice}>kr {price} </span>

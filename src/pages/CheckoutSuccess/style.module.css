@@ -1,0 +1,27 @@
+.details {
+  text-align: center;
+  margin: 3rem 0;
+}
+.details button {
+  border: none;
+  box-shadow: var(--box-shadow);
+  display: inline-block;
+  background-color: var(--color-brand--2);
+  color: var(--color-dark--1);
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight: 600;
+  padding: 1rem 3rem;
+  margin-top: 2rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.details button:hover {
+  background-color: var(--color-hover--1);
+}
+
+.icon {
+  font-size: 3rem;
+  color: var(--color-brand--1);
+}

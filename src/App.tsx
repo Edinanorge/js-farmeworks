@@ -7,20 +7,25 @@ import Contact from "./pages/Contact";
 import Product from "./pages/Product";
 import Checkout from "./pages/Checkout";
 import PageNotFound from "./pages/PageNotFound";
+import CheckoutSuccess from "./pages/CheckoutSuccess";
+import { ShoppingCartProvider } from "./context/ShoppingCartContext";
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
-          <Route path="contact" element={<Contact />} />
-          <Route path="product/:id" element={<Product />} />
-          <Route path="checkout" element={<Checkout />} />
-          <Route path="*" element={<PageNotFound />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+    <ShoppingCartProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Home />} />
+            <Route path="contact" element={<Contact />} />
+            <Route path="product/:id" element={<Product />} />
+            <Route path="checkout" element={<Checkout />} />
+            <Route path="checkout/success" element={<CheckoutSuccess />} />
+            <Route path="*" element={<PageNotFound />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </ShoppingCartProvider>
   );
 }
 export default App;

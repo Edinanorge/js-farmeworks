@@ -1,0 +1,10 @@
+.starRating {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  color: #f0c14b;
+}
+
+.star {
+  margin-right: 4px;
+}

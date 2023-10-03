@@ -1,0 +1,15 @@
+.reviewContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2rem 6rem;
+}
+
+.reviewContainer h4 {
+  font-style: italic;
+}
+
+.review {
+  margin-left: 2rem;
+  list-style: none;
+}

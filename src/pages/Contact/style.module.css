@@ -1,0 +1,54 @@
+.container {
+  background-image: linear-gradient(rgba(36, 42, 46, 0.8), rgba(36, 42, 46, 0.8)), url("../../assets/contact.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.container section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1rem;
+  padding: 3rem 3rem;
+  align-items: end;
+}
+.addressContainer {
+  margin-top: 10rem;
+  grid-column: 1;
+  grid-row: 1;
+}
+.addressContainer p {
+  color: var(--color-brand--1);
+  margin-bottom: 1.5rem;
+}
+.addressContainer span {
+  color: var(--color-light--2);
+  margin-left: 1rem;
+}
+
+.addressContainer img {
+  max-width: 80%;
+}
+
+.form button {
+  border: none;
+  box-shadow: var(--box-shadow);
+  display: inline-block;
+  background-color: var(--color-brand--2);
+  color: var(--color-dark--1);
+  text-transform: uppercase;
+  text-decoration: none;
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight: 600;
+  padding: 1rem 3rem;
+  margin-top: 4rem;
+  border-radius: 5px;
+}
+@media screen and (max-width: 600px) {
+  .container section {
+    display: block;
+  }
+  .addressContainer {
+    text-align: center;
+  }
+}

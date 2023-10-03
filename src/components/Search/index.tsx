@@ -8,10 +8,12 @@ interface SearchProps {
 
 function Search({ placeholder, handleChange }: SearchProps) {
   return (
-    <form className={styles.form}>
-      <label>Search : </label>
-      <input type="search" className="search" placeholder={placeholder} onChange={handleChange} />
-    </form>
+    <section>
+      <form className={styles.form}>
+        <label>Search : </label>
+        <input type="search" className="search" placeholder={placeholder} onChange={handleChange} />
+      </form>
+    </section>
   );
 }
 

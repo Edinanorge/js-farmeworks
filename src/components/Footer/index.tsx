@@ -3,7 +3,7 @@ function Footer() {
   const currentDate = new Date().getFullYear();
   return (
     <footer className={styles.footer}>
-      <p>copyright @ {currentDate} Logo</p>
+      <p>copyright @ {currentDate} One-Stop Shop </p>
     </footer>
   );
 }

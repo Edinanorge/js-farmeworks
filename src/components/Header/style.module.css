@@ -3,21 +3,21 @@
   justify-content: space-between;
 
   align-items: center;
-  background-color: var(--color-dark--2);
+  background-color: var(--color-dark--1);
   position: fixed;
   width: 100%;
   z-index: 9999;
-  box-shadow: rgba(0, 0, 0, 0.094) 0px 1px 0px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
 .logo {
   color: var(--color-brand--2);
-  font-size: 3rem;
+  font-size: 2rem;
   padding-left: 2rem;
+  font-weight: 600;
 }
 .nav ul {
   list-style: none;
   display: flex;
-  background-color: var(--color-dark--2);
   border-radius: 7px;
   margin: 1.6rem;
 }
@@ -40,4 +40,25 @@
 
 .nav a:global(.active) {
   background-color: var(--color-dark--0);
+}
+
+.cartItemIndicator {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+
+  background-color: var(--color-brand--1);
+  color: var(--color-dark--2);
+  text-align: center;
+  font-weight: 800;
+
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+}
+
+@media screen and (max-width: 600px) {
+  .logo {
+    font-size: 1.4rem;
+  }
 }

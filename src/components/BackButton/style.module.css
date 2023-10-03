@@ -1,0 +1,25 @@
+.button {
+  margin: 5rem 0 0 5rem;
+  border: none;
+  background-color: var(--color-dark--1);
+  color: var(--color-brand--2);
+  font-size: 3rem;
+  display: flex;
+  align-items: center;
+}
+
+.button:hover {
+  text-decoration: underline;
+}
+
+.button span {
+  margin-left: 1rem;
+  font-size: 2rem;
+  color: var(--color-light--1);
+}
+
+@media screen and (max-width: 800px) {
+  .button {
+    margin: 10rem 0 0 2rem;
+  }
+}

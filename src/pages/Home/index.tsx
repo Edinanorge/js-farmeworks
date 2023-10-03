@@ -1,44 +1,28 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Hero from "../../components/Hero";
 import Search from "../../components/Search";
 import ProductList from "../../components/ProductList";
+import { ClockLoader } from "react-spinners";
+import { useApi } from "../../hooks/useApi";
 
 interface IProduct {
   id: number;
-  title: string;
   imageUrl: string;
+  title: string;
   description: string;
-  price:number;
+  price: number;
   discountedPrice: number;
+  rating: number;
+  reviews: [];
 }
 
 function Home() {
-  const [products, setProducts] = useState<IProduct[]>([]);
-  const [isLoading, setIsLoading] = useState(false);
-  const [isError, setIsError] = useState(false);
   const [searchField, setSearchField] = useState("");
-
-  useEffect(() => {
-    const url = "https://api.noroff.dev/api/v1/online-shop";
-    async function getData() {
-      try {
-        setIsError(false);
-        setIsLoading(true);
-        const response = await fetch(url);
-        const json = await response.json();
-        setProducts(json);
-        setIsLoading(false);
-      } catch (error) {
-        setIsLoading(false);
-        setIsError(true);
-      }
-    }
-
-    getData();
-  }, []);
+  const { data, isLoading, isError } = useApi("https://api.noroff.dev/api/v1/online-shop");
+  const products = data as IProduct[];
 
   if (isLoading) {
-    return <main>Loading posts...</main>;
+    return <ClockLoader color="#36d7b7" />;
   }
 
   if (isError) {

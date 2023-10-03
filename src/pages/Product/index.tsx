@@ -1,7 +1,9 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-import styles from "./style.module.css";
-import { FaStar, FaStarHalf } from "react-icons/fa";
+
+import ProductDetails from "../../components/ProductDetails";
+import ReviewsList from "../../components/ReviewsList";
+import BackButton from "../../components/BackButton";
 
 interface IProduct {
   id: number;
@@ -12,12 +14,6 @@ interface IProduct {
   discountedPrice: number;
   rating: number;
   reviews: [];
-}
-interface IReview {
-  id: string | number;
-  username: string;
-  rating: number;
-  description: string;
 }
 
 function Product() {
@@ -37,8 +33,9 @@ function Product() {
         setProduct(json);
         setIsLoading(false);
       } catch (error) {
-        setIsLoading(false);
         setIsError(true);
+      } finally {
+        setIsLoading(false);
       }
     }
 
@@ -55,49 +52,11 @@ function Product() {
 
   return (
     <main>
+      <BackButton />
       <ProductDetails product={product} />
       <ReviewsList product={product} />
     </main>
   );
 }
 
-function ProductDetails({ product }: { product: IProduct }) {
-  const fullStars = Math.floor(product.rating);
-  const hasHalfStar = product.rating - fullStars >= 0.5;
-
-  return (
-    <section className={styles.singleProductContainer}>
-      <img src={product.imageUrl} alt={product.title} />
-      <div>
-        <h2>{product.title}</h2>
-        <p>{product.description}</p>
-        <div>
-          {[...Array(fullStars)].map((_, index) => (
-            <FaStar key={index} className={styles.star} />
-          ))}
-          {hasHalfStar && <FaStarHalf className={styles.star} />} ({product.rating})
-        </div>
-        <input type=""></input>
-        <button className={styles.btnCta}>Add to Cart</button>
-      </div>
-    </section>
-  );
-}
-
-function ReviewsList({ product }: { product: IProduct }) {
-  return (
-    <ul className={styles.reviewContainer}>
-      <h3>Reviews:</h3>
-      {product.reviews.map((review: IReview) => (
-        <li key={review.id} className={styles.review}>
-          <h4>{review.username}</h4>
-          <p>
-            <FaStar className={styles.star} /> ({review.rating})
-          </p>
-          <p>{review.description}</p>
-        </li>
-      ))}
-    </ul>
-  );
-}
 export default Product;
