@@ -18,32 +18,34 @@ interface IProductListProps {
 
 function ProductList({ products }: IProductListProps) {
   const productItem = products.map((product) => {
-    const { id, imageUrl, title, description, price, discountedPrice } = product;
+    const { id, imageUrl, title, price, discountedPrice } = product;
     const discount = discountedPrice < price;
     const discountValue = (((price - discountedPrice) / price) * 100).toFixed(0);
 
     return (
       <div key={id} className={styles.product}>
-        <img src={imageUrl} alt="product image" />
-        <h2>{title}</h2>
-        <StarRating rating={product.rating} />
-        <p>{description}</p>
-
-        {discount ? (
-          <div>
-            <span className={styles.discountedPrice}>kr {price} </span>
-            <span className={styles.price}>kr {discountedPrice} </span>
-            <div className={styles.discount}>{discountValue} %</div>
-          </div>
-        ) : (
-          <div>
-            <span className={styles.price}>kr {discountedPrice} </span>
-          </div>
-        )}
-
-        <Link to={`/product/${id}`} className="cta">
-          View product
+        <Link to={`/product/${id}`}>
+          <img src={imageUrl} alt="product image" />
         </Link>
+        <div className={styles.productBody}>
+          <h2>{title}</h2>
+          <StarRating rating={product.rating} />
+          {discount ? (
+            <div>
+              <span className={styles.sale}>{discountedPrice} kr</span>
+              <span className={styles.discountedPrice}>{price} kr</span>
+              <div className={styles.discount}>{discountValue} %</div>
+            </div>
+          ) : (
+            <div>
+              <span className={styles.price}> {discountedPrice} kr</span>
+            </div>
+          )}
+
+          <Link to={`/product/${id}`} className={styles.link}>
+            View product
+          </Link>
+        </div>
       </div>
     );
   });

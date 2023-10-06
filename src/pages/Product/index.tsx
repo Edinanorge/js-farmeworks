@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { ClockLoader } from "react-spinners";
 
 import ProductDetails from "../../components/ProductDetails";
 import ReviewsList from "../../components/ReviewsList";
@@ -14,6 +15,7 @@ interface IProduct {
   discountedPrice: number;
   rating: number;
   reviews: [];
+  tags: [];
 }
 
 function Product() {
@@ -43,11 +45,17 @@ function Product() {
   }, [id]);
 
   if (isLoading) {
-    return <main>Loading...</main>;
+    return (
+      <main>
+        <div className="spinner">
+          <ClockLoader color={"#00c46a"} />
+        </div>
+      </main>
+    );
   }
 
   if (isError || !product) {
-    return <main>Error</main>;
+    return <main>Error loading data..</main>;
   }
 
   return (

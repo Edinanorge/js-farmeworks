@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { useShoppingCart } from "../../context/ShoppingCartContext";
 import { useApi } from "../../hooks/useApi";
 import styles from "./style.module.css";
@@ -36,8 +37,10 @@ function CartItem({ id }: ICartItem) {
     <div className={styles.cartItem}>
       <img src={item.imageUrl} alt="product picture" />
       <div>
-        <h2>{item.title}</h2>
-        <p className={styles.code}>code:{item.id}</p>
+        <Link to={`/product/${id}`} className={styles.link}>
+          <h2>{item.title}</h2>{" "}
+        </Link>
+        <p className={styles.code}>Code:{item.id}</p>
         <div>{item.discountedPrice} kr</div>
       </div>
 

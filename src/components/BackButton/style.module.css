@@ -3,7 +3,7 @@
   border: none;
   background-color: var(--color-dark--1);
   color: var(--color-brand--2);
-  font-size: 3rem;
+  font-size: 2rem;
   display: flex;
   align-items: center;
 }
@@ -14,7 +14,8 @@
 
 .button span {
   margin-left: 1rem;
-  font-size: 2rem;
+  font-size: 1.6rem;
+  text-transform: uppercase;
   color: var(--color-light--1);
 }
 

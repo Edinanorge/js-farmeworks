@@ -22,7 +22,13 @@ function Home() {
   const products = data as IProduct[];
 
   if (isLoading) {
-    return <ClockLoader color="#36d7b7" />;
+    return (
+      <main>
+        <div className="spinner">
+          <ClockLoader color={"#00c46a"} />
+        </div>
+      </main>
+    );
   }
 
   if (isError) {

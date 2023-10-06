@@ -1,8 +1,9 @@
+import { Link } from "react-router-dom";
 import { useShoppingCart } from "../../context/ShoppingCartContext";
+import { ClockLoader } from "react-spinners";
 import CartItem from "../../components/CartItem";
 import styles from "./style.module.css";
 import { useApi } from "../../hooks/useApi";
-import { Link } from "react-router-dom";
 
 interface IProduct {
   id: number;
@@ -16,14 +17,30 @@ interface IProduct {
 
 function Checkout() {
   const { cartItems, removeAllFromCart } = useShoppingCart();
-  const { data } = useApi("https://api.noroff.dev/api/v1/online-shop");
+  const { data, isLoading, isError } = useApi("https://api.noroff.dev/api/v1/online-shop");
   const products = data as IProduct[];
 
+  if (isLoading) {
+    return (
+      <main>
+        <div className="spinner">
+          <ClockLoader color={"#00c46a"} />
+        </div>
+      </main>
+    );
+  }
+
+  if (isError) {
+    return <main>Error loading data...</main>;
+  }
+
   const getTotalPrice = () => {
-    return cartItems.reduce((total, cartItem) => {
+    const totalPrice = cartItems.reduce((total, cartItem) => {
       const item = products.find((i) => i.id === cartItem.id);
       return total + (item?.discountedPrice || 0) * cartItem.quantity;
     }, 0);
+
+    return totalPrice.toFixed(2);
   };
 
   return (

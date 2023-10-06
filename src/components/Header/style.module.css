@@ -45,16 +45,10 @@
 .cartItemIndicator {
   position: absolute;
   top: 0.5rem;
-  right: 0.5rem;
-
-  background-color: var(--color-brand--1);
-  color: var(--color-dark--2);
+  right: 2rem;
+  color: var(--color-brand--1);
   text-align: center;
-  font-weight: 800;
-
-  width: 2.5rem;
-  height: 2.5rem;
-  border-radius: 50%;
+  font-weight: 700;
 }
 
 @media screen and (max-width: 600px) {

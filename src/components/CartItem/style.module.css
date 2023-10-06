@@ -41,6 +41,16 @@
   text-align: end;
 }
 
+.link:link,
+.link:visited {
+  color: var(--color-light--2);
+}
+
+.link:active,
+.link:hover {
+  text-decoration: underline;
+}
+
 @media screen and (max-width: 500px) {
   .cartItem {
     border-top: 1px solid #fff;

@@ -7,7 +7,7 @@ function BackButton() {
     <section>
       <Link to="/" className={styles.button}>
         <FaArrowLeft />
-        <span>Back to products</span>
+        <span>Products</span>
       </Link>
     </section>
   );

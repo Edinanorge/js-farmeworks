@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useShoppingCart } from "../../context/ShoppingCartContext";
-
+import Modal from "../Modal";
 import StarRating from "../StarRating";
 import styles from "./style.module.css";
 
@@ -13,38 +13,46 @@ interface IProduct {
   discountedPrice: number;
   rating: number;
   reviews: [];
+  tags: [];
 }
 
 function ProductDetails({ product }: { product: IProduct }) {
-  const [message, setMessage] = useState("");
-  const [buttonClicked, setButtonClicked] = useState(false);
+  const [openModal, setOpenModal] = useState(false);
   const { increaseCartQuantity } = useShoppingCart();
 
   const handleClick = () => {
-    setButtonClicked(true);
     increaseCartQuantity(product.id);
-    setMessage("The product is added to your cart.");
+    setOpenModal(true);
   };
 
   return (
     <section className={styles.singleProductContainer}>
       <img src={product.imageUrl} alt={product.title} />
       <div className={styles.details}>
+        <div>
+          {product.tags.map((tag, index) => (
+            <span className={styles.tag} key={index}>
+              {tag}
+            </span>
+          ))}
+        </div>
         <h2>{product.title}</h2>
-
         <StarRating rating={product.rating} />
         <p>{product.description}</p>
+        <p>Price:</p>
+        <p>
+          {product.price > product.discountedPrice && (
+            <span className={styles.discountedPrice}>{product.price} kr</span>
+          )}
+        </p>
         <h3>
           {product.discountedPrice} <span>kr</span>
         </h3>
-        {buttonClicked ? (
-          <p className={styles.message}>{message}</p>
-        ) : (
-          <button className={styles.btnCta} onClick={handleClick}>
-            Add to Cart
-          </button>
-        )}
+        <button className={styles.btnCta} onClick={handleClick}>
+          Add to Cart
+        </button>
       </div>
+      {openModal && <Modal product={product} closeModal={() => setOpenModal(false)} />}
     </section>
   );
 }

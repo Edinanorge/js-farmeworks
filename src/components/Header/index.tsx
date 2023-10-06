@@ -8,7 +8,7 @@ function Header() {
   return (
     <header className={styles.header}>
       <Link className={styles.logo} to="/">
-        One-Stop Shop
+        Stop Shop
       </Link>
       <nav className={styles.nav}>
         <ul>

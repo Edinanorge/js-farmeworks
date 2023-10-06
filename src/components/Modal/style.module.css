@@ -1,0 +1,90 @@
+.modal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  background-color: rgba(200, 200, 200, 0.823);
+
+  display: flex;
+  justify-content: center;
+  align-items: start;
+}
+.modalBody {
+  margin-top: 10rem;
+  position: relative;
+  background-color: var(--color-dark--2);
+  padding: 4rem;
+  border: 9px;
+  box-shadow: var(--box-shadow);
+}
+
+.btnClose {
+  color: var(--color-light--1);
+  border: none;
+  background-color: var(--color-dark--2);
+  font-size: 1.5rem;
+  position: absolute;
+  top: 5%;
+  right: 4%;
+  cursor: pointer;
+}
+.modalDescription {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 4rem;
+}
+
+.success {
+  padding: 1rem 2rem;
+  color: var(--color-brand--2);
+  background-color: var(--color-dark--1);
+  border-radius: 9px;
+  margin-bottom: 3rem;
+}
+.product {
+  display: flex;
+  gap: 1rem;
+}
+.product img {
+  width: 15rem;
+  max-height: 10rem;
+  object-fit: cover;
+}
+
+.modalBtn,
+.modalBtnCheckout {
+  box-shadow: var(--box-shadow);
+  background-color: var(--color-brand--2);
+  color: var(--color-dark--1);
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight: 600;
+  padding: 1rem 3rem;
+  margin-top: 2rem;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+.modalBtn:hover {
+  background-color: var(--color-hover--1);
+}
+
+.modalBtnCheckout {
+  border: 1px solid var(--color-brand--2);
+  background-color: var(--color-dark--2);
+  color: var(--color-light-1);
+  margin-left: 1rem;
+}
+@media screen and (max-width: 500px) {
+  .modalDescription {
+    align-items: center;
+  }
+  .modalBtn,
+  .modalBtnCheckout {
+    display: block;
+  }
+}

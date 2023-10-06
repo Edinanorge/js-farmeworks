@@ -1,8 +1,9 @@
 .starRating {
   display: flex;
-  align-items: center;
-  font-size: 14px;
-  color: #f0c14b;
+  align-items: end;
+  font-size: 1.4rem;
+  margin-bottom: 2rem;
+  color: var(--color-brand--1);
 }
 
 .star {
