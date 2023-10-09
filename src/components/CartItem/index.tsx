@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useShoppingCart } from "../../context/ShoppingCartContext";
-import { useApi } from "../../hooks/useApi";
+import { ClockLoader } from "react-spinners";
+import { useEffect, useState } from "react";
 import styles from "./style.module.css";
 import { FaMinus, FaRegTrashAlt, FaPlus } from "react-icons/fa";
 
@@ -20,28 +21,52 @@ interface IProduct {
 }
 
 function CartItem({ id }: ICartItem) {
+  const [product, setProduct] = useState<IProduct>();
+  const [isLoading, setIsLoading] = useState(false);
+  const [isError, setIsError] = useState(false);
   const { getItemQuantity, increaseCartQuantity, decreaseCartQuantity, removeFromCart } = useShoppingCart();
-  const { data, isLoading, isError } = useApi(`https://api.noroff.dev/api/v1/online-shop/${id}`);
+  useEffect(() => {
+    const url = `https://api.noroff.dev/api/v1/online-shop/${id} `;
+    async function getData() {
+      try {
+        setIsError(false);
+        setIsLoading(true);
+        const response = await fetch(url);
+        const json = await response.json();
+        setProduct(json);
+        setIsLoading(false);
+      } catch (error) {
+        setIsError(true);
+      } finally {
+        setIsLoading(false);
+      }
+    }
 
-  const item = data as IProduct;
+    getData();
+  }, [id]);
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return (
+      <main>
+        <div className="spinner">
+          <ClockLoader color={"#00c46a"} />
+        </div>
+      </main>
+    );
   }
 
-  if (isError || !item) {
-    return <div>Error loading item details.</div>;
+  if (isError || !product) {
+    return <main>Error loading data..</main>;
   }
-
   return (
     <div className={styles.cartItem}>
-      <img src={item.imageUrl} alt="product picture" />
+      <img src={product.imageUrl} alt="product picture" />
       <div>
         <Link to={`/product/${id}`} className={styles.link}>
-          <h2>{item.title}</h2>{" "}
+          <h2>{product.title}</h2>{" "}
         </Link>
-        <p className={styles.code}>Code:{item.id}</p>
-        <div>{item.discountedPrice} kr</div>
+        <p className={styles.code}>Code:{product.id}</p>
+        <div>{product.discountedPrice} kr</div>
       </div>
 
       <div className={styles.quantity}>

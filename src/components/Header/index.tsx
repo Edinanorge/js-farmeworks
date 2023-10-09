@@ -1,20 +1,27 @@
 import { Link, NavLink } from "react-router-dom";
-import styles from "./style.module.css";
 import { FaShoppingCart } from "react-icons/fa";
+
 import { useShoppingCart } from "../../context/ShoppingCartContext";
+
+import styles from "./style.module.css";
+import image from "../../assets/logo.png";
 
 function Header() {
   const { cartQuantity } = useShoppingCart();
   return (
     <header className={styles.header}>
       <Link className={styles.logo} to="/">
-        Stop Shop
+        <img src={image} alt="logo" className={styles.logo} />
       </Link>
       <nav className={styles.nav}>
         <ul>
           <li>
-            <NavLink to="/contact">Contact Us</NavLink>
+            <NavLink to="/">Home</NavLink>
           </li>
+          <li>
+            <NavLink to="/contact">Contact</NavLink>
+          </li>
+
           <li>
             <NavLink to="/checkout">
               <FaShoppingCart />

@@ -69,7 +69,8 @@
   }
   .singleProductContainer img {
     width: 100%;
-    height: 30rem;
+    height: 20rem;
+    margin-bottom: 1rem;
   }
   .details {
     width: 100%;

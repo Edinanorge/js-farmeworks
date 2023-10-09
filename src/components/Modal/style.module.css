@@ -43,6 +43,7 @@
   background-color: var(--color-dark--1);
   border-radius: 9px;
   margin-bottom: 3rem;
+  text-align: center;
 }
 .product {
   display: flex;
