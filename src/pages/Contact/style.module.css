@@ -58,6 +58,16 @@
   border-radius: 5px;
 }
 
+.message {
+  text-align: center;
+  margin-top: 2rem;
+  font-weight: 500;
+  color: var(--color-brand--1);
+  font-size: 2rem;
+}
+.message p {
+  font-size: 1.4rem;
+}
 @media screen and (max-width: 600px) {
   .container section {
     display: block;
