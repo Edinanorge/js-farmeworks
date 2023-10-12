@@ -45,6 +45,7 @@ function ProductDetails({ product }: { product: IProduct }) {
             <span className={styles.discountedPrice}>{product.price} kr</span>
           )}
         </p>
+
         <h3>
           {product.discountedPrice} <span>kr</span>
         </h3>

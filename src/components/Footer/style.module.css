@@ -2,5 +2,61 @@
   background-color: var(--color-dark--0);
 
   text-align: center;
-  padding: 1rem;
+}
+.formContainer {
+  padding: 2rem;
+  color: var(--color-dark--0);
+  background-color: var(--color-brand--1);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.formContainer h3 {
+  font-size: 2rem;
+}
+.formContainer input {
+  border-radius: 9px;
+  font-size: 1.2rem;
+  padding: 0.5rem 1rem;
+}
+.footerSecondary {
+  max-width: 90rem;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+  padding: 2rem;
+}
+
+.footerSecondary a {
+  font-size: 1.4rem;
+  color: var(--color-light--1);
+  display: flex;
+  justify-content: center;
+}
+.footerSecondary a:hover {
+  color: var(--color-brand--2);
+  text-decoration: underline;
+}
+
+.footerSecondary div:first-child {
+  padding: 0 2rem;
+  border-right: 0.5px solid var(--color-light--1);
+}
+.copyright {
+  padding: 0.5rem;
+  background-color: var(--color-dark--1);
+}
+
+@media screen and (max-width: 480px) {
+  .footerSecondary {
+    display: inline-block;
+    text-align: center;
+  }
+  .footerSecondary div:first-child {
+    margin-bottom: 1rem;
+    border: none;
+    border-bottom: 1px solid var(--color-light--1);
+  }
 }
