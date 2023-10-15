@@ -29,6 +29,11 @@
   color: white;
   font-size: 2rem;
   background-color: var(--color-dark--1);
+  cursor: pointer;
+  transition: all 0.35s;
+}
+.btnQuantity:hover {
+  background-color: var(--color-dark--2);
 }
 
 .btnRemove {
@@ -36,6 +41,12 @@
   border: none;
   font-size: 2rem;
   padding: 0.5rem 1rem;
+  cursor: pointer;
+
+  transition: all 0.35s;
+}
+.btnRemove:hover {
+  background-color: var(--color-brand--1);
 }
 .price {
   text-align: end;

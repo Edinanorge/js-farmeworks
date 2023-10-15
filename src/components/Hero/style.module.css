@@ -11,11 +11,12 @@
   text-align: center;
 }
 .hero h1 {
-  font-size: 4rem;
+  font-size: 6rem;
   font-weight: bold;
 }
 .hero p {
   padding-top: 2rem;
+  font-size: 2rem;
   color: var(--color-light--3);
 }
 
